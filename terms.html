@@ -3,12 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy</title>
+    <title>HLIN – Terms & Conditions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0A0D10;
+            --bg-surface: #141821;
+            --text-primary: #E6E8EB;
+            --text-secondary: #8B909A;
+            --accent: #A8A1C6;
+            --accent-hover: #B8B5D6;
+            --border: #1F2632;
+            --border-light: #2A3139;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(10, 13, 16, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .header-link {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .header-link:hover {
+            color: var(--accent);
+        }
+
+        /* Layout */
+        main {
+            padding: 8rem 4rem 5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            margin-bottom: 1.3rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.96rem;
+            color: var(--text-secondary);
+        }
+
+        ul li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 4rem 3rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-inner a {
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 2rem;
+                height: 70px;
+            }
+
+            main {
+                padding: 7rem 2rem 4rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            footer {
+                padding: 2rem 2rem 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0 1.5rem;
+            }
+
+            main {
+                padding: 6.5rem 1.5rem 3.5rem;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Terms & Conditions</h1>
-    <p>WE're cool with anything unless you're pannig to do some malitious actvity like stealing our data or spoiling our brand.</p>
-    <hr>
-    <p>I'f you prefer proper legal language, our legal team is working on it.</p>
+    <header>
+        <div class="logo">HLIN</div>
+        <a href="index.html" class="header-link">Back to Home</a>
+    </header>
+
+    <main>
+        <h1>Terms &amp; Conditions</h1>
+        <div class="subtitle">Last updated: December 23, 2025</div>
+
+        <p>
+            These Terms &amp; Conditions (“Terms”) govern your access to and use of the HLIN mobile application,
+            website, and related services (collectively, the “Service”) provided by HLIN (“we”, “us”, or “our”).
+        </p>
+        <p>
+            By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms,
+            you must not use the Service.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>1. Eligibility &amp; Account</h2>
+
+        <p>
+            You must be at least the age of majority in your jurisdiction, or have legal parental/guardian consent, to use
+            the Service. By using HLIN, you represent that you meet this requirement.
+        </p>
+        <p>
+            Some features may require an account. You are responsible for maintaining the confidentiality of your login
+            credentials and for all activities that occur under your account.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>2. Subscription &amp; Billing</h2>
+
+        <p>
+            HLIN is offered as a paid subscription service. Pricing and available plans (for example, monthly or yearly)
+            are displayed in the app or on our website.
+        </p>
+        <ul>
+            <li>
+                Payments and billing are generally processed by third‑party providers (for example, Apple’s App Store billing).
+            </li>
+            <li>
+                Your subscription will automatically renew at the end of each billing period unless you cancel at least
+                24 hours before renewal through your account or app store settings.
+            </li>
+            <li>
+                We do not ourselves process or store your full payment card details; those are handled by the relevant
+                payment processor.
+            </li>
+        </ul>
+        <p>
+            Any refunds, if applicable, are handled subject to the policies of the applicable app store or payment provider
+            and any mandatory local law.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>3. License &amp; Permitted Use</h2>
+
+        <p>
+            Subject to your compliance with these Terms, we grant you a limited, non‑exclusive, non‑transferable, revocable
+            license to access and use the Service for your personal, non‑commercial use.
+        </p>
+        <p>
+            You agree not to:
+        </p>
+        <ul>
+            <li>Copy, record, reproduce, distribute, or publicly perform any audio or other content from HLIN, except as expressly permitted within the app.</li>
+            <li>Modify, reverse engineer, decompile, or attempt to extract source code from the Service, except where such restrictions are prohibited by law.</li>
+            <li>Use the Service in any unlawful manner or in violation of applicable laws or regulations.</li>
+            <li>Use automated systems (such as bots or scrapers) to access the Service in a way that could disrupt or overload our infrastructure.</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>4. Content &amp; Intellectual Property</h2>
+
+        <p>
+            All audio content, artwork, text, branding, and other materials made available through HLIN (the “Content”) are
+            owned by us or our licensors and are protected by copyright and other intellectual property laws.
+        </p>
+        <p>
+            Your subscription and use of the Service do not transfer any ownership rights in the Content. You receive only
+            a limited license to stream and access the Content as enabled by the Service.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>5. User Conduct</h2>
+
+        <p>You agree that you will not:</p>
+        <ul>
+            <li>Use the Service for any purpose that is illegal or prohibited by these Terms.</li>
+            <li>Attempt to circumvent any technical protections, access controls, or usage limits in the Service.</li>
+            <li>Upload, share, or transmit any content that is unlawful, harmful, defamatory, or infringing.</li>
+            <li>Impersonate any person or entity, or misrepresent your affiliation with any person or entity.</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>6. Privacy</h2>
+
+        <p>
+            Your use of the Service is also governed by our Privacy Policy, which describes how we collect, use, and
+            protect your information, including crash analytics and audio playback analytics that are not individually
+            targeted toward any specific person. Your privacy is a core priority for HLIN.
+        </p>
+        <p>
+            Please review our Privacy Policy at: <a href="privacy.html">/privacy</a>.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>7. Service Changes &amp; Availability</h2>
+
+        <p>
+            We may update, modify, or discontinue parts of the Service from time to time, including adding or removing
+            features, content, or subscription options.
+        </p>
+        <p>
+            We strive to keep HLIN available and stable, but we do not guarantee uninterrupted or error‑free operation.
+            Temporary interruptions may occur due to maintenance, technical issues, or circumstances beyond our control.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>8. Disclaimers</h2>
+
+        <p>
+            The Service and all Content are provided “as is” and “as available,” without warranties of any kind, whether
+            express or implied, including but not limited to implied warranties of merchantability, fitness for a
+            particular purpose, or non‑infringement, to the fullest extent permitted by law.[web:40]
+        </p>
+        <p>
+            We do not guarantee that the Service will be free from interruptions, delays, security breaches, or errors,
+            or that any defects will be corrected.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>9. Limitation of Liability</h2>
+
+        <p>
+            To the fullest extent permitted by law, HLIN and its affiliates, officers, employees, and partners shall not
+            be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits,
+            revenues, data, or goodwill, arising out of or in connection with your use of the Service.
+        </p>
+        <p>
+            To the extent any liability is found despite the above, our total aggregate liability for all claims arising
+            out of or relating to the Service or these Terms shall be limited to the amount you paid to us for the
+            Service in the twelve (12) months preceding the event giving rise to the claim, or the minimum amount
+            permitted under applicable law if higher.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>10. Termination</h2>
+
+        <p>
+            You may stop using the Service at any time and can cancel your subscription through your account or app store
+            settings.
+        </p>
+        <p>
+            We may suspend or terminate your access to the Service, with or without notice, if we reasonably believe you
+            have violated these Terms, engaged in fraudulent or illegal activity, or if continued access could pose risk
+            to us, our licensors, or other users.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>11. Third‑Party Services</h2>
+
+        <p>
+            The Service may integrate with or contain links to third‑party websites, apps, or services (for example,
+            payment processors or analytics providers). We are not responsible for the content, policies, or practices
+            of those third parties. Their terms and policies govern your use of their services.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>12. Changes to These Terms</h2>
+
+        <p>
+            We may update these Terms from time to time, for example to reflect changes to the Service, legal requirements,
+            or business practices.[web:38]
+        </p>
+        <p>
+            When we make material changes, we will update the “Last updated” date at the top of this page and, where
+            appropriate, provide additional notice within the app or on our website. Your continued use of the Service
+            after changes become effective constitutes your acceptance of the updated Terms.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>13. Governing Law &amp; Dispute Resolution</h2>
+
+        <p>
+            These Terms and any dispute arising out of or relating to them or the Service shall be governed by and
+            construed in accordance with the laws of the jurisdiction in which HLIN is established, without regard
+            to its conflict‑of‑law principles. (You should customize this to your actual country/state.)
+        </p>
+        <p>
+            Any disputes shall be resolved in the courts or forums of that jurisdiction, unless mandatory local law
+            requires otherwise.
+        </p>
+
+        <div class="section-divider"></div>
+
+        <h2>14. Contact Us</h2>
+
+        <p>
+            If you have any questions about these Terms or the Service, please contact us:
+        </p>
+        <p>
+            <strong>HLIN</strong><br>
+            Email: <a href="mailto:legal@hlinapp.com">legal@hlinapp.com</a><br>
+            Website: <a href="index.html" target="_blank" rel="noopener noreferrer">https://hlinapp.com</a>
+        </p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 2025 HLIN. All rights reserved.</div>
+            <div><a href="index.html">Back to hlinapp.com</a></div>
+        </div>
+    </footer>
 </body>
 </html>

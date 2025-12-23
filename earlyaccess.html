@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HLIN – Support</title>
+    <title>HLIN – Early Access</title>
     <style>
         * {
             margin: 0;
@@ -113,23 +113,16 @@
             margin: 2.5rem 0;
         }
 
-        /* Support layout */
-        .support-intro {
+        .intro {
             max-width: 650px;
             margin-bottom: 2rem;
-        }
-
-        .support-grid {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 3rem;
-            margin-top: 2rem;
         }
 
         .card {
             background: var(--bg-surface);
             border: 1px solid var(--border-light);
             padding: 2.2rem 2rem;
+            margin-top: 2rem;
         }
 
         .card h2 {
@@ -140,25 +133,17 @@
             text-transform: uppercase;
         }
 
-        .meta-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-bottom: 0.5rem;
-        }
-
         /* Form */
         form {
             display: flex;
             flex-direction: column;
-            gap: 1.4rem;
+            gap: 1.5rem;
         }
 
         label {
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.45rem;
             font-size: 0.9rem;
             color: var(--text-primary);
             letter-spacing: 0.05em;
@@ -167,6 +152,7 @@
 
         input[type="email"],
         input[type="text"],
+        select,
         textarea {
             background: #0B0F14;
             border: 1px solid var(--border-light);
@@ -180,7 +166,7 @@
         }
 
         textarea {
-            min-height: 140px;
+            min-height: 120px;
             line-height: 1.6;
         }
 
@@ -190,9 +176,77 @@
         }
 
         input:focus,
+        select:focus,
         textarea:focus {
             border-color: var(--accent);
             background: #0d1117;
+        }
+
+        .inline-group {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .options-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+        }
+
+        .option-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .option-pill input[type="radio"] {
+            accent-color: var(--accent);
+        }
+
+        /* Voice preference selector */
+        .voice-select {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.4rem;
+        }
+
+        .voice-select label {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .voice-select input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .voice-select span {
+            display: block;
+            padding: 0.75rem 0.6rem;
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+            background: #0B0F14;
+            transition: all 0.25s ease;
+        }
+
+        .voice-select input:checked + span {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(168, 161, 198, 0.08);
+        }
+
+        .voice-select span:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
         }
 
         .btn {
@@ -229,26 +283,6 @@
             color: var(--success);
         }
 
-        .support-meta p {
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .support-meta a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .support-meta a:hover {
-            color: var(--accent-hover);
-        }
-
-        @media (max-width: 900px) {
-            .support-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 768px) {
             header {
                 padding: 0 2rem;
@@ -261,6 +295,14 @@
 
             h1 {
                 font-size: 2.2rem;
+            }
+
+            .inline-group {
+                grid-template-columns: 1fr;
+            }
+
+            .voice-select {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -291,77 +333,97 @@
     </header>
 
     <main>
-        <h1>Support</h1>
-        <div class="subtitle">We’re here to help</div>
+        <h1>Early Access</h1>
+        <div class="subtitle">Join the first circle of listeners</div>
 
-        <div class="support-intro">
+        <div class="intro">
             <p>
-                For questions about your membership, technical issues, or feedback on the listening experience,
-                use the form below to contact the HLIN team. Every message is read by a real person.
+                Early access is limited and curated. Share a few details so we can shape HLIN around how you actually listen:
+                the voices you prefer, the way you unwind, and the kind of presence you’re looking for.
             </p>
             <p>
-                Please include as much detail as possible (device type, app version, and a short description of what happened)
-                if you are reporting a bug or playback issue.
+                This information is used only to understand our audience and refine the experience. It is not used for ads or sold to third parties.
             </p>
         </div>
 
         <div class="section-divider"></div>
 
-        <div class="support-grid">
-            <div class="card">
-                <h2>Contact Form</h2>
+        <div class="card">
+            <h2>Request Early Access</h2>
 
-                <!-- Formspree form -->
-                <form
-                    action="https://formspree.io/f/mykglkjo"
-                    method="POST"
-                    id="support-form"
-                >
+            <!-- Formspree form -->
+            <form
+              action="https://formspree.io/f/mnjaljgp"
+              method="POST"
+              id="early-access-form"
+            >
+                <label>
+                    Email
+                    <input type="email" name="email" required placeholder="you@example.com">
+                </label>
+
+                <div class="inline-group">
                     <label>
-                        Your email
-                        <input type="email" name="email" required placeholder="you@example.com">
+                        Gender
+                        <select name="gender" required>
+                            <option value="" disabled selected>Select one</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="non-binary">Non-binary</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                            <option value="other">Other</option>
+                        </select>
                     </label>
 
                     <label>
-                        Subject
-                        <input type="text" name="subject" placeholder="Billing, technical issue, feedback…" required>
+                        Age range
+                        <select name="age_range" required>
+                            <option value="" disabled selected>Select one</option>
+                            <option value="under-18">Under 18</option>
+                            <option value="18-24">18–24</option>
+                            <option value="25-34">25–34</option>
+                            <option value="35-44">35–44</option>
+                            <option value="45-54">45–54</option>
+                            <option value="55-plus">55+</option>
+                        </select>
                     </label>
+                </div>
 
-                    <label>
-                        Your message
-                        <textarea name="message" required placeholder="Tell us how we can help."></textarea>
-                    </label>
+                <label>
+                    Preferred voice
+                    <div class="voice-select">
+                        <label>
+                            <input type="radio" name="voice_preference" value="female" required>
+                            <span>Female</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="voice_preference" value="male">
+                            <span>Male</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="voice_preference" value="mix">
+                            <span>Mix of both</span>
+                        </label>
+                    </div>
+                </label>
 
-                    <!-- Optional hidden field to tag source -->
-                    <input type="hidden" name="form_name" value="HLIN Support Form">
+                <label>
+                    Anything else you’d like us to know?
+                    <textarea name="message" placeholder="Optional: how you use ASMR, what you’d love HLIN to do differently."></textarea>
+                </label>
 
-                    <button class="btn" type="submit">Send</button>
-                    <div class="status" id="form-status"></div>
-                </form>
-            </div>
+                <!-- Optional hidden field to tag source -->
+                <input type="hidden" name="form_name" value="HLIN Early Access">
 
-            <div class="card support-meta">
-                <h2>Additional Details</h2>
-                <p class="meta-label">Typical response time</p>
-                <p>Within 24–48 hours on weekdays.</p>
-
-                <p class="meta-label">What to include</p>
-                <p>- Device & OS (e.g., iPhone 15, iOS 18)</p>
-                <p>- App version (from settings, if available)</p>
-                <p>- Steps to reproduce any issue</p>
-
-                <p class="meta-label">Direct email</p>
-                <p>
-                    Prefer email? Write to<br>
-                    <a href="mailto:support@hlinapp.com">support@hlinapp.com</a>
-                </p>
-            </div>
+                <button class="btn" type="submit">Request Access</button>
+                <div class="status" id="form-status"></div>
+            </form>
         </div>
     </main>
 
     <script>
-        // Optional JavaScript to show inline success/error message without leaving page
-        const form = document.getElementById('support-form');
+        // Optional JS to keep user on page and show a status message after submit
+        const form = document.getElementById('early-access-form');
         const statusEl = document.getElementById('form-status');
 
         if (form) {
@@ -383,7 +445,7 @@
 
                     if (response.ok) {
                         form.reset();
-                        statusEl.textContent = 'Thank you. Your message has been sent.';
+                        statusEl.textContent = 'Thank you. Your early access request has been received.';
                         statusEl.classList.add('success');
                     } else {
                         statusEl.textContent = 'Something went wrong. Please try again later.';

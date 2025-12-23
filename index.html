@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HLIN – The Art of Listening</title>
     <style>
+        /* Global image blending for dark UI */
+        img {
+            opacity: 0.7;
+            transition: opacity 0.35s ease;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -337,6 +342,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0.80;
         }
 
         .artist-bubble:hover {
@@ -354,6 +360,118 @@
             height: 220px;
             background: radial-gradient(circle, rgba(212,165,255,0.08), transparent 70%);
             pointer-events: none;
+        }
+
+        /* Preview Audio Section */
+        .preview {
+            padding: 8rem 3rem;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+        }
+
+        .preview-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .preview-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .preview-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .preview-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* Subtle focus on interaction */
+        .artist-bubble:hover img,
+        .preview-card:hover img {
+            opacity: 1;
+        }
+
+        .preview-meta h4 {
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+
+        .preview-meta span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .preview-controls {
+            margin-top: 2rem;
+        }
+
+        .preview-progress {
+            width: 100%;
+            height: 3px;
+            background: var(--border);
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .preview-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+        }
+
+        .preview-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .preview-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .preview-time {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Three Pillars Section */
@@ -403,7 +521,7 @@
         .pillar-icon img {
             width: 28px;
             height: 28px;
-            opacity: 0.85;
+            opacity: 1.0;
             filter: invert(72%) sepia(14%) saturate(420%) hue-rotate(210deg) brightness(96%) contrast(92%);
         }
 
@@ -789,17 +907,17 @@
             <a href="#story">The Craft</a>
             <a href="#membership">Membership</a>
             <a href="#cta">Join</a>
-            <button class="btn">Early Access</button>
+            <button class="btn" onclick="window.location.href='earlyaccess.html'">Early Access</button>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>The Art of Listening</h1>
+            <h1>The Art of ASMR</h1>
             <p class="hero-subtitle">Enter a world where sound transcends the ordinary. <br> Lossless ASMR. Curated from the world’s finest creators.</p>
             <div class="hero-cta">
-                <button class="btn">Request Membership</button>
+                <button class="btn" onclick="scrollToPreview()">Preview</button>
             </div>
             <!-- <div class="badge">Preview – Launching 2025</div> -->
         </div>
@@ -827,7 +945,7 @@
 </section>
 
 <!-- Artists -->
-    <section class="artists">
+    <section class="artists" id="artist">
         <div class="artists-content">
             <h2>Featured Artists</h2>
             <p class="artists-subtitle">A curated selection — and many more.</p>
@@ -911,7 +1029,7 @@
             <div class="pillars-grid">
                 <div class="pillar">
                     <div class="pillar-icon">
-                        <img src="https://unpkg.com/heroicons@2.1.1/24/outline/circle-stack.svg" alt="Purity icon">
+                        <img src="https://unpkg.com/heroicons@2.1.1/24/outline/signal.svg" alt="Purity icon">
                     </div>
                     <h3>Purity</h3>
                     <p>Studio-grade lossless audio, untouched. No compression. No compromise. <br> Exactly as the artist intended.</p>
@@ -930,6 +1048,66 @@
                     <h3>Evolution</h3>
                     <p>Fresh compositions every week. <br> A living collection that grows with refined taste and artistic discovery.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Audio -->
+    <section class="preview" id="preview">
+        <div class="preview-content">
+            <h2>Listening Preview</h2>
+            <p class="hero-subtitle">A brief glimpse into the HLIN sound experience.</p>
+
+            <div class="preview-grid">
+
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <div class="preview-avatar">
+                            <img src="assets/audios-by-sky.webp" alt="enderain audios">
+                        </div>
+                        <div class="preview-meta">
+                            <h4>Can you warm me up</h4>
+                            <span>Audios by Sky</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-controls">
+                        <div class="preview-progress">
+                            <div class="preview-progress-bar"></div>
+                        </div>
+                        <div class="preview-bottom">
+                            <button class="preview-btn">Play</button>
+                            <div class="preview-time">20:07</div>
+                        </div>
+                    </div>
+
+                    <audio src="https://storage.googleapis.com/amoura-production.firebasestorage.app/Audios/3OEd9svXwxM.mp3"></audio>
+                </div>
+
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <div class="preview-avatar">
+                            <img src="assets/anonyfun.webp" alt="">
+                        </div>
+                        <div class="preview-meta">
+                            <h4>My Sweet</h4>
+                            <span>Anonyfun</span>
+                        </div>
+                    </div>
+
+                    <div class="preview-controls">
+                        <div class="preview-progress">
+                            <div class="preview-progress-bar"></div>
+                        </div>
+                        <div class="preview-bottom">
+                            <button class="preview-btn">Play</button>
+                            <div class="preview-time">8:15</div>
+                        </div>
+                    </div>
+
+                    <audio src="https://res.cloudinary.com/quinn-cloudinary/video/upload/ac_aac,br_96k/v1670620979/audios/Anonyfun/lzrit1xnkzqw7otwl7qk.mp4"></audio>
+                </div>
+
             </div>
         </div>
     </section>
@@ -991,7 +1169,7 @@
                 <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 2rem;">
                     Cancel anytime
                 </p>
-                <button class="btn">Request Membership</button>
+                <button class="btn" onclick="window.location.href='earlyaccess.html'">Request Membership</button>
             </div>
         </div>
     </section>
@@ -1016,7 +1194,7 @@
             <p class="cta-subtitle">
                 Early access opens to a select group. Secure your place in a community built on craft, intention, and the belief that sound matters.
             </p>
-            <button class="btn">Claim Your Seat</button>
+            <button class="btn" onclick="window.location.href='earlyaccess.html'">Early Access</button>
             <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 2.5rem; letter-spacing: 0.05em;">
                 Launching Q1 2026
             </p>
@@ -1031,16 +1209,16 @@
                 <ul>
                     <li><a href="#story">The Craft</a></li>
                     <li><a href="#membership">Membership</a></li>
-                    <li><a href="#">Artists</a></li>
-                    <li><a href="#">Sound Library</a></li>
+                    <li><a href="#artist">Artists</a></li>
+                    <li><a href="earlyaccess.html">Sound Library</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Information</h4>
                 <ul>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
                 </ul>
             </div>
         </div>
@@ -1052,6 +1230,12 @@
     </footer>
 
     <script>
+        function scrollToPreview() {
+            const target = document.getElementById('preview');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1090,6 +1274,43 @@
                 setTimeout(() => {
                     this.style.transform = '';
                 }, 100);
+            });
+        });
+
+        // Preview Audio cards logic
+        document.querySelectorAll('.preview-card').forEach(card => {
+            const audio = card.querySelector('audio');
+            const btn = card.querySelector('.preview-btn');
+            const bar = card.querySelector('.preview-progress-bar');
+            const time = card.querySelector('.preview-time');
+
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('audio').forEach(a => {
+                    if (a !== audio) a.pause();
+                });
+
+                if (audio.paused) {
+                    audio.play();
+                    btn.textContent = 'Pause';
+                } else {
+                    audio.pause();
+                    btn.textContent = 'Play';
+                }
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                bar.style.width = progress + '%';
+
+                const remaining = audio.duration - audio.currentTime;
+                const m = Math.floor(remaining / 60);
+                const s = Math.floor(remaining % 60).toString().padStart(2, '0');
+                time.textContent = `${m}:${s}`;
+            });
+
+            audio.addEventListener('ended', () => {
+                btn.textContent = 'Play';
+                bar.style.width = '0%';
             });
         });
     </script>
