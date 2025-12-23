@@ -444,9 +444,7 @@
                     });
 
                     if (response.ok) {
-                        form.reset();
-                        statusEl.textContent = 'Thank you. Your early access request has been received.';
-                        statusEl.classList.add('success');
+                        window.location.href = "earlyaccess-success.html";
                     } else {
                         statusEl.textContent = 'Something went wrong. Please try again later.';
                         statusEl.classList.add('error');
